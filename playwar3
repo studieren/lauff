@@ -1,0 +1,60 @@
+package com.lauff.moshou;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+
+public class moshou {
+	public static void main(String[] args) throws AWTException {
+		File f1 = new File("D:\\Program Files (x86)\\Netease\\CloudMusic\\cloudmusic.exe");
+		File f2 = new File("E:\\war3\\xlWarKey.exe");
+		File f3 = new File("E:\\war3\\版本转换器.exe");
+		OutputStream outst1 = null;
+		OutputStream outst2 = null;
+		OutputStream outst3 = null;
+//		Robot robot;
+		try {
+			outst1 = new BufferedOutputStream(new FileOutputStream(f1));
+			Thread.sleep(6000);
+			outst2 = new BufferedOutputStream(new FileOutputStream(f2));
+			outst3 = new BufferedOutputStream(new FileOutputStream(f3));
+			/*
+			 * robot = new Robot(); //key press event,not used
+			 * robot.keyPress(KeyEvent.VK_CONTROL);
+			 * robot.keyPress(KeyEvent.VK_ALT);
+			 * robot.keyPress(KeyEvent.VK_RIGHT);
+			 */
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException fnf) {
+			// TODO Auto-generated catch block
+			fnf.printStackTrace();
+		}
+		/*
+		 * try { //command line event,not used yet Process p =
+		 * Runtime.getRuntime().exec("cmd /C dir"); BufferedReader in = new
+		 * BufferedReader(new InputStreamReader(p.getInputStream())); String
+		 * line = null; while ((line = in.readLine()) != null) {
+		 * System.out.println(line); } } catch (IOException e) {
+		 * e.printStackTrace(); }
+		 */finally {
+			try {
+				outst1.close();
+				outst2.close();
+				outst3.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}
